@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Mprueba.Models.ViewModels.ClienteViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="row">
+    <div class="col-lg-12" align="right">
+        @Html.ActionLink("Nuevo", "Nuevo", "Cliente", new { @class = "btn btn-primary" })
+    </div>
+</div>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRE_CLIENTE)
+        </th>
+        <th>
+            Estado
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_CLIENTE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMBRE_CLIENTE)
+            </td>
+            <td>
+                <span class="label label-@(item.ESTADO? "success":"danger")">@(item.ESTADO ? "Activo" : "Desactivado")</span>
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", "Cliente", new { id = item.ID_CLIENTE }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Eliminar", "Eliminar", "Cliente", new { id = item.ID_CLIENTE }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

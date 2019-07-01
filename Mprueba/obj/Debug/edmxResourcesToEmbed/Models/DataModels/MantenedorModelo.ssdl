@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PRUEBAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="ID_CLIENTE" />
+    </Key>
+    <Property Name="ID_CLIENTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE_CLIENTE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="PRUEBAModelStoreContainer">
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
